@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: `${__dirname}/dist`,
         publicPath: '/',
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
     // https://webpack.js.org/configuration/dev-server
     devServer: {
@@ -32,7 +32,20 @@ module.exports = {
             '.js',
             '.jsx'
         ]
-    }
+    },
+    // https://webpack.js.org/configuration/optimization/
+    optimization: {
+        // https://imweb.io/topic/5b66dd601402769b60847149
+        splitChunks: {
+            cacheGroups: {
+                vendors: {
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                },
+            },
+        },
+    },
 };
 
 // https://eslint.org/docs/user-guide/configuring
