@@ -11,7 +11,9 @@ module.exports = {
     },
     // https://webpack.js.org/configuration/dev-server
     devServer: {
-        contentBase: './dist'
+        contentBase: './dist',
+        // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
+        writetodisk: true
     },
     // https://webpack.js.org/configuration/module
     module: {
